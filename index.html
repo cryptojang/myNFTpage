@@ -10,9 +10,19 @@
     <div class="container">
       <header>
         <div class="clock font-digi">00:00</div>
-        <div class="quotes font-digi">Hawaii will solve everything</div>
+        <div>
+          <button onclick="onClickQuotes()" class="quotes font-eastar">
+            wlb
+          </button>
+          <div class="new-quotes">
+            <input class="new-quotes-input" type="text" />
+            <button class="addbutton font-eastar" onclick="onClickNewQuotes()">
+              등록
+            </button>
+          </div>
+        </div>
       </header>
-      <main>Hello Yura!</main>
+      <main></main>
     </div>
     <video src="./assets/images/background.mp4" autoplay muted loop></video>
     <script src="main.js"></script>

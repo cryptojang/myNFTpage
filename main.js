@@ -29,3 +29,61 @@ function getTime() {
 
 getTime();
 setInterval(getTime, 1000);
+setInterval(getQuotes, 1000);
+
+const QUOTE_LIST = "quotesList";
+//오타 나면 안 되는 키값은 상수로 만들고, 대문자로 쓰고 상수 넣어서 틀리지 않도록 함. 상수는 다 대문자로 작성!
+
+function getQuotes() {
+  const quotes = document.querySelector(".quotes");
+
+  let savedQuotes = localStorage.getItem(QUOTE_LIST);
+
+  if (!savedQuotes) {
+    // 없으면 기본적으로 하나 생성
+    localStorage.setItem(QUOTE_LIST, JSON.stringify(["하와이 가면"]));
+
+    savedQuotes = localStorage.getItem(QUOTE_LIST);
+  }
+
+  let parsedQuotes = JSON.parse(savedQuotes);
+
+  quotes.innerHTML =
+    parsedQuotes[Math.floor(Math.random() * parsedQuotes.length)];
+}
+
+getQuotes();
+
+function onClickNewQuotes() {
+  const quotes = document.querySelector(".quotes");
+  const newQuotes = document.querySelector(".new-quotes"); /// 이거 왜 추가했어야 하는지 고민해보기, 뜬 입력창 지울때!!!
+  const newQuotesInput = document.querySelector(".new-quotes-input");
+
+  if (!newQuotesInput.value) return;
+
+  //local storage save. print on page
+  let savedQuotes = localStorage.getItem(QUOTE_LIST);
+  let parsedQuotes = JSON.parse(savedQuotes);
+
+  parsedQuotes.push(newQuotesInput.value);
+
+  //다시 로컬에 저장
+  localStorage.setItem(QUOTE_LIST, JSON.stringify(parsedQuotes));
+
+  //현재 펭지 반영
+  quotes.innerText = newQuotesInput.value;
+
+  //버튼 누른 후 박스에 남아있지 않도록
+  newQuotesInput.value = "";
+
+  quotes.style.display = "block";
+  newQuotes.style.display = "none";
+}
+
+function onClickQuotes() {
+  const quotes = document.querySelector(".quotes");
+  const newQuotes = document.querySelector(".new-quotes");
+
+  quotes.style.display = "none";
+  newQuotes.style.display = "block";
+}

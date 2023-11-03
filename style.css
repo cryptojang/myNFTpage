@@ -3,12 +3,29 @@
   src: url("./assets/fonts/DS-DIGI.TTF");
 }
 
+@font-face {
+  font-family: "EASTARJET-Medium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/EASTARJET-Medium.woff2")
+    format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+.font-eastar {
+  font-family: "EASTARJET-Medium";
+}
+
 .font-digi {
   font-family: "DS-DIGI";
 }
 
 body {
   margin: 0;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
 }
 
 video {
@@ -25,7 +42,7 @@ video {
   max-width: 1280px;
   margin: auto;
   min-height: 100vh;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 header {
@@ -34,4 +51,38 @@ header {
   padding: 16px;
   font-size: 32px;
   color: white;
+}
+
+.quotes {
+  font-size: 36px;
+  color: white;
+}
+
+.new-quotes {
+  display: none;
+}
+
+.new-quotes > button {
+  background-color: yellow;
+  padding: 8px 16px;
+  margin-left: 8px;
+  font-size: 16px;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.addbutton:hover {
+  background-color: aquamarine;
+}
+
+.new-quotes-input {
+  border: 1px solid yellow;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.new-quotes-input:focus {
+  outline: 2px solid aqua;
 }
