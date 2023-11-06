@@ -87,3 +87,26 @@ function onClickQuotes() {
   quotes.style.display = "none";
   newQuotes.style.display = "block";
 }
+
+async function getNft() {
+  const nftImg = document.querySelector(".nft-img");
+  const nftName = document.querySelector(".nft-name");
+  const nftDesc = document.querySelector(".nft-desc");
+
+  //ㅇㅕ기서 지갑 훑고 지갑 주소 불러옴 지금은 바로 아는 주소 가져옴
+}
+async function getNft() {
+  const nftImg = document.querySelector(".nft-img");
+  const nftName = document.querySelector(".nft-name");
+  const nftDesc = document.querySelector(".nft-desc");
+
+  const response = await axios.get(
+    "https://olbm.mypinata.cloud/ipfs/QmSTkwUrg2neZ9J8Ws3UADbM3bySUcQbvwRFPKFo7vmB9E"
+  );
+
+  nftImg.src = response.data.image;
+  nftName.innerText = response.data.name;
+  nftDesc.innerText = response.data.description;
+}
+
+getNft();
